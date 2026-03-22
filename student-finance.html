@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>البوابة المالية للطالب | Al-Kunooz University</title>
+<meta name="description" content="تسديد الأقساط والاستعلام المالي لطلبة جامعة الكنوز">
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div id="navbar-root"></div>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('image/download7.webp');background-position:center;filter:brightness(0.3)"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb" style="justify-content:center">
+      <a href="index.html" data-t="nav_home">الرئيسية</a><i class="fa-solid fa-chevron-left"></i>
+      <a href="students.html" data-t="nav_students">الطلاب</a><i class="fa-solid fa-chevron-left"></i>
+      <span>الخدمات المالية والأقساط</span>
+    </div>
+  </div>
+</section>
+
+<section class="portal-layout">
+  <div class="container">
+    
+    <div class="reveal-scale" style="display:flex;flex-direction:column;align-items:center">
+      <div class="portal-card">
+        <div class="portal-icon"><i class="fa-solid fa-wallet"></i></div>
+        <h1 class="pc-title">البوابة المالية للطالب</h1>
+        <p class="pc-desc">أدخل رقمك الجامعي الثابت لمراجعة موقف الأقساط وتسديد الدفعات المتبقية عبر البطاقات الإلكترونية.</p>
+        
+        <form class="portal-form" data-form-submit>
+          <div class="form-group" style="margin-bottom:32px">
+            <label class="form-label">الرقم الجامعي (ID)</label>
+            <div style="position:relative">
+              <i class="fa-solid fa-id-badge" style="position:absolute;top:50%;transform:translateY(-50%);inset-inline-start:16px;color:var(--gray-400)"></i>
+              <input type="text" class="form-input" style="padding-inline-start:44px;direction:ltr" required placeholder="KU-2026-XXXX">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-navy btn-lg" style="width:100%;background:#14b8a6;border-color:#14b8a6"><i class="fa-solid fa-file-invoice-dollar"></i>الاستعلام المالي والدفع</button>
+        </form>
+
+        <div class="portal-links" style="justify-content:center;margin-top:32px">
+          <div style="display:flex;gap:16px;font-size:24px;color:var(--gray-400)">
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-solid fa-money-bill-transfer"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-strip reveal">
+        <i class="fa-solid fa-building-columns" style="color:#14b8a6;font-size:20px"></i>
+        <span>استفسارات مالية؟ تواصل مع الشؤون المالية: <a href="mailto:finance@alkunooz.edu.iq" dir="ltr" style="font-weight:800;color:var(--teal)">finance@alkunooz.edu.iq</a></span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<script src="js/translations.js"></script>
+<script>
+  window.KU_PAGE='students.html'; 
+  window.KU_NAV_SOLID=false;
+</script>
+<script src="js/navbar.js"></script>
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+</body>
+</html>

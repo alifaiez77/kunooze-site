@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>معرض الصور | Al-Kunooz University</title>
+<meta name="description" content="البوم الصور ومقاطع الفيديو للحياة الجامعية والأنشطة في جامعة الكنوز">
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!-- ==========================================
+     WP MAPPING: header.php
+     ========================================== -->
+<div id="navbar-root"></div>
+
+<!-- ==========================================
+     WP MAPPING: archive-gallery.php
+     ========================================== -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('image/download7.webp')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="index.html" data-t="nav_home">الرئيسية</a><i class="fa-solid fa-chevron-left"></i><span data-t="gallery_page_title">معرض الصور والفيديوهات</span></div>
+    <h1 data-t="gallery_page_title">معرض الصور والفيديوهات</h1>
+    <p data-t="gallery_page_sub">لمحات من حياة جامعة الكنوز وفعالياتها الأكاديمية والطلابية</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <!-- Filter -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="campus">الحرم الجامعي</button>
+      <button class="filter-btn" data-filter="labs">المختبرات</button>
+      <button class="filter-btn" data-filter="events">الفعاليات</button>
+      <button class="filter-btn" data-filter="grad">التخرج</button>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="gallery-masonry">
+      <!-- WP LOOP: "Gallery" Custom Post Type -->
+      <!-- LOOP ITEM START -->
+      <div class="gallery-item reveal" data-cat="campus">
+        <img src="image/DJI_0745.webp" alt="الحرم الجامعي">
+        <div class="gi-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus gi-icon"></i>
+          <span class="gi-cat">الحرم الجامعي</span>
+          <h4 class="gi-title">إطلالة جوية للحرم الرئيسي</h4>
+        </div>
+      </div>
+      <!-- LOOP ITEM END -->
+      <div class="gallery-item reveal" data-cat="labs">
+        <img src="image/6087photo_2026-02-25_08-34-46.webp" alt="المختبرات">
+        <div class="gi-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus gi-icon"></i>
+          <span class="gi-cat">المختبرات</span>
+          <h4 class="gi-title">مختبرات كلية الصيدلة</h4>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-cat="campus">
+        <img src="image/download7.webp" alt="مبنى الكلية">
+        <div class="gi-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus gi-icon"></i>
+          <span class="gi-cat">الحرم الجامعي</span>
+          <h4 class="gi-title">الواجهة الأمامية للمجمع الطبي</h4>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-cat="events">
+        <img src="image/6087photo_2026-02-25_08-34-46.webp" alt="مؤتمر">
+        <div class="gi-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus gi-icon"></i>
+          <span class="gi-cat">الفعاليات</span>
+          <h4 class="gi-title">المؤتمر العلمي السنوي</h4>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-cat="campus">
+        <img src="image/DJI_0745.webp" alt="حدائق">
+        <div class="gi-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus gi-icon"></i>
+          <span class="gi-cat">الحرم الجامعي</span>
+          <h4 class="gi-title">الساحات الخضراء والحدائق</h4>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-cat="grad">
+        <img src="image/download7.webp" alt="تخرج">
+        <div class="gi-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus gi-icon"></i>
+          <span class="gi-cat">التخرج</span>
+          <h4 class="gi-title">حفل تخرج الدفعة الذهبية</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Grid -->
+    <h2 class="section-title reveal" style="text-align:center;margin-top:64px">الجولات المرئية للفيديو</h2>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <img src="image/DJI_0745.webp" alt="فيديو 1">
+        <div class="v-overlay"><div class="play-btn"><i class="fa-solid fa-play"></i></div></div>
+        <div class="v-title">جولة تعريفية في أروقة الحرم الجامعي والمرافق الطبية</div>
+      </div>
+      <div class="video-card reveal">
+        <img src="image/download7.webp" alt="فيديو 2">
+        <div class="v-overlay"><div class="play-btn"><i class="fa-solid fa-play"></i></div></div>
+        <div class="v-title">رسالة السيد رئيس الجامعة للطلبة الجدد 2026</div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox">
+  <div class="lb-overlay"></div>
+  <div class="lb-inner">
+    <div class="lb-nav lb-prev"><i class="fa-solid fa-chevron-right"></i></div>
+    <div style="position:relative">
+      <button class="lb-close"><i class="fa-solid fa-xmark"></i></button>
+      <img class="lb-img" src="" alt="عرض الصورة">
+    </div>
+    <div class="lb-nav lb-next"><i class="fa-solid fa-chevron-left"></i></div>
+  </div>
+</div>
+
+</div>
+
+<!-- ==========================================
+     WP MAPPING: footer.php
+     ========================================== -->
+<script src="js/footer.js"></script>
+<script src="js/translations.js"></script>
+<script>window.KU_PAGE='gallery.html';window.KU_NAV_SOLID=true;</script>
+<script src="js/navbar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المكتبة الرقمية | Al-Kunooz University</title>
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div id="navbar-root"></div>
+
+<div class="dashboard-wrap">
+  <div class="dashboard-container">
+    
+    <aside class="dash-sidebar">
+      <div class="dash-user">
+        <div class="dash-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+        <div style="flex:1">
+          <h3 style="font-size:18px;font-weight:900;color:var(--navy);margin-bottom:4px" data-t="dash_student_name">أحمد عبدالله</h3>
+          <p style="font-size:13px;color:var(--gray-500);font-family:monospace;margin-bottom:8px">student@alkunooz.edu.iq</p>
+          <span style="font-size:11.5px;font-weight:800;color:var(--teal);background:rgba(14,116,144,0.1);padding:4px 10px;border-radius:6px;display:inline-block">كلية الهندسة - مرحلة ثالثة</span>
+        </div>
+      </div>
+      <nav class="dash-nav">
+        <a href="student-dashboard.html" class="dash-link"><i class="fa-solid fa-border-all"></i><span data-t="dash_nav_courses">المقررات الدراسية</span></a>
+        <a href="student-schedule.html" class="dash-link"><i class="fa-solid fa-calendar-days"></i><span data-t="dash_nav_schedule">الجدول الأسبوعي</span></a>
+        <a href="student-library.html" class="dash-link active"><i class="fa-solid fa-book-open-reader"></i><span data-t="dash_nav_library">المكتبة الرقمية</span></a>
+        <a href="student-grades.html" class="dash-link"><i class="fa-solid fa-chart-line"></i><span data-t="dash_nav_grades">سجل الدرجات</span></a>
+        <a href="elearning.html" class="dash-link" style="color:#ef4444;margin-top:24px"><i class="fa-solid fa-right-from-bracket"></i><span data-t="dash_nav_logout">تسجيل الخروج</span></a>
+      </nav>
+    </aside>
+
+    <main class="dash-main">
+      <div>
+        <h1 class="page-title">المكتبة الرقمية الأكاديمية</h1>
+        <p class="page-subtitle">تصفح وحمل آلاف المصادر، الكتب المقررة، والمراجع البحثية المعتمدة.</p>
+      </div>
+
+      <div class="library-toolbar">
+        <div class="lib-search">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" placeholder="ابحث عن كتاب، مرجع، أو محاضرة...">
+        </div>
+        <div class="lib-filters">
+          <select>
+            <option>جميع التخصصات</option>
+            <option>هندسة البرمجيات</option>
+            <option>الرياضيات</option>
+            <option>قواعد البيانات</option>
+          </select>
+          <select>
+            <option>الكل (ملازم وكتب)</option>
+            <option>كتب منهجية (PDF)</option>
+            <option>مذكرات ومحاضرات</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="library-grid">
+        <!-- Resource 1 -->
+        <div class="book-card">
+          <div class="book-cover" style="background:#e0f2fe;color:#0284c7"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="book-category">كتاب منهجي</div>
+          <h3 class="book-title">مقدمة في الخوارزميات (الطبعة الرابعة)</h3>
+          <div class="book-author">Cormen, Leiserson, Rivest</div>
+          <div class="book-actions">
+            <button class="btn btn-navy"><i class="fa-solid fa-cloud-arrow-down"></i> تحميل</button>
+            <button class="btn btn-outline-navy"><i class="fa-solid fa-eye"></i> قراءة</button>
+          </div>
+        </div>
+        
+        <!-- Resource 2 -->
+        <div class="book-card">
+          <div class="book-cover" style="background:#ffedd5;color:#ea580c"><i class="fa-solid fa-file-powerpoint"></i></div>
+          <div class="book-category">محاضرات مساعدة</div>
+          <h3 class="book-title">شرائح عرض - معمارية الحاسوب الأسبوع الثالث</h3>
+          <div class="book-author">د. علي حسين</div>
+          <div class="book-actions">
+            <button class="btn btn-navy" style="width:100%"><i class="fa-solid fa-cloud-arrow-down"></i> تحميل التلخيص</button>
+          </div>
+        </div>
+
+        <!-- Resource 3 -->
+        <div class="book-card">
+          <div class="book-cover" style="background:#f3f4f6;color:#4b5563"><i class="fa-solid fa-book"></i></div>
+          <div class="book-category">مرجع بحثي</div>
+          <h3 class="book-title">Fundamentals of Database Systems</h3>
+          <div class="book-author">Ramez Elmasri</div>
+          <div class="book-actions">
+            <button class="btn btn-navy"><i class="fa-solid fa-cloud-arrow-down"></i> تحميل</button>
+            <button class="btn btn-outline-navy"><i class="fa-solid fa-eye"></i> قراءة</button>
+          </div>
+        </div>
+        
+        <!-- Resource 4 -->
+        <div class="book-card">
+          <div class="book-cover" style="background:#fce7f3;color:#db2777"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="book-category">كتاب إلكتروني</div>
+          <h3 class="book-title">Operating System Concepts, 10th Ed.</h3>
+          <div class="book-author">Silberschatz, Galvin, Gagne</div>
+          <div class="book-actions">
+            <button class="btn btn-navy"><i class="fa-solid fa-cloud-arrow-down"></i> تحميل</button>
+            <button class="btn btn-outline-navy"><i class="fa-solid fa-eye"></i> قراءة</button>
+          </div>
+        </div>
+      </div>
+      
+    </main>
+
+  </div>
+</div>
+
+<script src="js/translations.js"></script>
+<script>
+  window.KU_PAGE='students.html'; 
+  window.KU_NAV_SOLID=true;
+</script>
+<script src="js/navbar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

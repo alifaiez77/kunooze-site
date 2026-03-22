@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم والمقررات | Al-Kunooz University</title>
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!-- ==========================================
+     WP MAPPING: header.php
+     ========================================== -->
+<div id="navbar-root"></div>
+
+<!-- ==========================================
+     WP MAPPING: page-student-dashboard.php
+     ========================================== -->
+<div class="dashboard-wrap">
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Profile & Navigation -->
+    <aside class="dash-sidebar">
+      <div class="dash-user">
+        <div class="dash-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+        <div style="flex:1">
+          <h3 style="font-size:18px;font-weight:900;color:var(--navy);margin-bottom:4px" data-t="dash_student_name">أحمد عبدالله</h3>
+          <p style="font-size:13px;color:var(--gray-500);font-family:monospace;margin-bottom:8px">student@alkunooz.edu.iq</p>
+          <span style="font-size:11.5px;font-weight:800;color:var(--teal);background:rgba(14,116,144,0.1);padding:4px 10px;border-radius:6px;display:inline-block">كلية الهندسة - مرحلة ثالثة</span>
+        </div>
+      </div>
+      <nav class="dash-nav">
+        <a href="student-dashboard.html" class="dash-link active"><i class="fa-solid fa-border-all"></i><span data-t="dash_nav_courses">المقررات الدراسية</span></a>
+        <a href="student-schedule.html" class="dash-link"><i class="fa-solid fa-calendar-days"></i><span data-t="dash_nav_schedule">الجدول الأسبوعي</span></a>
+        <a href="student-library.html" class="dash-link"><i class="fa-solid fa-book-open-reader"></i><span data-t="dash_nav_library">المكتبة الرقمية</span></a>
+        <a href="student-grades.html" class="dash-link"><i class="fa-solid fa-chart-line"></i><span data-t="dash_nav_grades">سجل الدرجات</span></a>
+        <a href="elearning.html" class="dash-link" style="color:#ef4444;margin-top:24px"><i class="fa-solid fa-right-from-bracket"></i><span data-t="dash_nav_logout">تسجيل الخروج</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+      
+      <!-- Dashboard Header -->
+      <div class="dash-header">
+        <div class="dash-header-title">
+          <h1 data-t="dash_welcome">مرحباً بك، أحمد!</h1>
+          <p data-t="dash_welcome_sub">متابعة موفقة لمقرراتك الدراسية في الفصل الدراسي الحالي.</p>
+        </div>
+        <div class="dash-gpa-badge">
+          <div style="font-size:11px;font-weight:800;opacity:0.9;margin-bottom:2px">المعدل التراكمي (GPA)</div>
+          <div style="font-size:24px;font-weight:900;letter-spacing:1px">3.85</div>
+        </div>
+      </div>
+
+      <!-- Upcoming Lectures Section -->
+      <div>
+        <h2 style="font-size:20px;font-weight:900;color:var(--navy);margin-bottom:20px;display:flex;align-items:center;gap:10px">
+          <i class="fa-solid fa-video" style="color:var(--red)"></i> محاضرات اليوم
+        </h2>
+        <div class="lecture-list">
+          <div class="lecture-card">
+            <div class="lecture-time">
+              09:30 ص
+              <span>مباشر الآن</span>
+            </div>
+            <div class="lecture-info">
+              <h4>هياكل البيانات والخوارزميات (CS201)</h4>
+              <p><i class="fa-solid fa-user-tie"></i> د. سليم عبدالرحمن <span style="margin:0 8px;color:var(--gray-300)">|</span> <i class="fa-solid fa-building"></i> القاعة المركزية A3</p>
+            </div>
+            <a href="#" class="btn btn-navy"><i class="fa-solid fa-play"></i> انضمام</a>
+          </div>
+          <div class="lecture-card">
+            <div class="lecture-time">  
+              12:00 م
+              <span style="background:var(--gray-100);color:var(--gray-500)">قريباً</span>
+            </div>
+            <div class="lecture-info">
+              <h4>معمارية الحاسوب المتقدمة (CE301)</h4>
+              <p><i class="fa-solid fa-user-tie"></i> د. علي حسين <span style="margin:0 8px;color:var(--gray-300)">|</span> <i class="fa-solid fa-desktop"></i> مختبر الحاسوب 4</p>
+            </div>
+            <a href="#" class="btn btn-outline-navy"><i class="fa-solid fa-circle-info"></i> التفاصيل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Courses Section -->
+      <div>
+        <h2 style="font-size:20px;font-weight:900;color:var(--navy);margin-bottom:20px;display:flex;align-items:center;gap:10px;margin-top:16px">
+          <i class="fa-solid fa-layer-group" style="color:var(--teal)"></i> المقررات الحالية
+        </h2>
+        <div class="course-grid">
+          <!-- Course 1 -->
+          <div class="course-card">
+            <div class="course-cover"><i class="fa-solid fa-code"></i><span class="course-badge">CS201</span></div>
+            <div class="course-body">
+              <h3>هياكل البيانات والخوارزميات</h3>
+              <p><i class="fa-regular fa-clock"></i> 3 ساعات معتمدة</p>
+              <div class="course-progress-wrap"><div class="course-progress" style="width:75%"></div></div>
+              <div class="course-status"><span>نسبة الإنجاز 75%</span><span style="color:var(--teal)">أداء ممتاز</span></div>
+            </div>
+          </div>
+          <!-- Course 2 -->
+          <div class="course-card">
+            <div class="course-cover" style="background:linear-gradient(135deg, var(--gold), #9a7b2c)"><i class="fa-solid fa-database"></i><span class="course-badge">CS205</span></div>
+            <div class="course-body">
+              <h3>تصميم وإدارة قواعد البيانات</h3>
+              <p><i class="fa-regular fa-clock"></i> 4 ساعات معتمدة</p>
+              <div class="course-progress-wrap"><div class="course-progress" style="width:40%;background:var(--gold)"></div></div>
+              <div class="course-status"><span>نسبة الإنجاز 40%</span><span style="color:var(--gray-500)">منتظم</span></div>
+            </div>
+          </div>
+          <!-- Course 3 -->
+          <div class="course-card">
+            <div class="course-cover" style="background:linear-gradient(135deg, #1e3a8a, #3b82f6)"><i class="fa-solid fa-microchip"></i><span class="course-badge">CE301</span></div>
+            <div class="course-body">
+              <h3>معمارية الحاسوب المتقدمة</h3>
+              <p><i class="fa-regular fa-clock"></i> 3 ساعات معتمدة</p>
+              <div class="course-progress-wrap"><div class="course-progress" style="width:15%;background:#3b82f6"></div></div>
+              <div class="course-status"><span>نسبة الإنجاز 15%</span><span style="color:var(--red)">متأخر في التسليم</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </main>
+  </div>
+</div>
+
+<script src="js/translations.js"></script>
+<script>
+  window.KU_PAGE='students.html'; 
+  window.KU_NAV_SOLID=true;
+</script>
+<script src="js/navbar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

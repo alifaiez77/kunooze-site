@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة التعليم الإلكتروني | Al-Kunooz University</title>
+<meta name="description" content="البوابة الإلكترونية للطالب ונظام التعليم المدمج في جامعة الكنوز">
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!-- ==========================================
+     WP MAPPING: header.php
+     ========================================== -->
+<!-- Top Navbar Mount (Transparent) -->
+<div id="navbar-root"></div>
+
+<!-- ==========================================
+     WP MAPPING: page-elearning.php
+     ========================================== -->
+<!-- Entire Page encapsulates auth section allowing full background to blend perfectly -->
+<section class="portal-wrapper">
+  <!-- Interactive Canvas Details -->
+  <div class="portal-bg-pattern"></div>
+  <div class="portal-orb orb-1"></div>
+  <div class="portal-orb orb-2"></div>
+
+  <div class="auth-container">
+    
+    <!-- Main Auth Card -->
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+        <h1 class="auth-title" data-t="elearning_title">بوابة التعليم الإلكتروني</h1>
+        <p class="auth-subtitle" data-t="elearning_desc">يرجى تسجيل الدخول باستخدام البريد الجامعي الرسمي للوصول إلى المحاضرات والواجبات.</p>
+      </div>
+      
+      <!-- Tech Demo Block -->
+      <div class="demo-module">
+        <div class="demo-module-glow"></div>
+        <div class="demo-header">
+          <div class="demo-title"><i class="fa-solid fa-flask"></i> <span data-t="elearning_demo_title">حساب تجريبي للتطوير</span></div>
+          <div class="demo-badge">OFFICIAL DEMO</div>
+        </div>
+        <div class="demo-creds">
+          <div>student@alkunooz.edu.iq</div>
+          <div style="letter-spacing:1px;color:var(--gray-500)">12345678</div>
+        </div>
+        <button type="button" class="btn-autofill" id="autofill-btn" onclick="fillDemo()">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-t="elearning_autofill">تعبئة الحساب التجريبي</span>
+        </button>
+      </div>
+
+      <!-- Invalid Credentials Alert -->
+      <div id="login-error" class="err-msg">
+        <i class="fa-solid fa-triangle-exclamation" style="font-size:16px"></i>
+        <span data-t="elearning_error">البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.</span>
+      </div>
+
+      <!-- Login Form Structure -->
+      <form id="elearning-form">
+        <!-- Floating Email -->
+        <div class="floating-group">
+          <input type="email" id="email-input" class="floating-input" required placeholder="hidden">
+          <label class="floating-label" data-t="elearning_email_label">البريد الإلكتروني الجامعي</label>
+          <i class="fa-solid fa-envelope floating-icon"></i>
+        </div>
+        
+        <!-- Floating Password -->
+        <div class="floating-group" style="margin-bottom:32px">
+          <input type="password" id="pass-input" class="floating-input" required placeholder="hidden">
+          <label class="floating-label" data-t="elearning_pass_label">كلمة المرور</label>
+          <i class="fa-solid fa-lock floating-icon"></i>
+          <i class="fa-regular fa-eye pass-toggle" title="Show Password" onclick="togglePass()"></i>
+        </div>
+
+        <button type="submit" id="login-btn" class="btn-login">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span data-t="elearning_btn">تسجيل الدخول للنظام</span>
+        </button>
+      </form>
+
+      <!-- Auxiliary Links -->
+      <div class="auth-links">
+        <a href="index.html" class="auth-link back">
+          <i class="fa-solid fa-arrow-right"></i> <span data-t="elearning_back">الموقع الرئيسي</span>
+        </a>
+        <a href="#" class="auth-link fg">
+          <span data-t="elearning_forgot">نسيت كلمة المرور؟</span> <i class="fa-solid fa-key"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Official Support Strip -->
+    <div class="support-strip">
+      <i class="fa-solid fa-headset" style="font-size:22px;color:var(--teal)"></i>
+      <span data-t="elearning_support">للدعم الفني المباشر، يرجى التواصل مع <a href="unit-it.html">شعبة تكنولوجيا المعلومات</a>.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================
+     WP MAPPING: footer.php
+     ========================================== -->
+<!-- Standard Footer Implementation below the fold -->
+<script src="js/footer.js"></script>
+
+<script src="js/translations.js"></script>
+<script>
+  // Ensure the page utilizes standard unified translation keys
+  translations.ar.elearning_title = 'بوابة التعليم الإلكتروني';
+  translations.en.elearning_title = 'E-Learning Portal';
+  
+  translations.ar.elearning_desc = 'يرجى تسجيل الدخول باستخدام البريد الجامعي الرسمي للوصول إلى المحاضرات والواجبات.';
+  translations.en.elearning_desc = 'Log in using your official university email to access lectures, resources, and assignments.';
+  
+  translations.ar.elearning_demo_title = 'حساب تجريبي للتطوير';
+  translations.en.elearning_demo_title = 'Demo Testing Account';
+  
+  translations.ar.elearning_autofill = 'تعبئة الحساب التجريبي';
+  translations.en.elearning_autofill = 'Auto-Fill Credentials';
+  
+  translations.ar.elearning_error = 'البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.';
+  translations.en.elearning_error = 'Incorrect email or password. Please verify and try again.';
+  
+  translations.ar.elearning_email_label = 'البريد الإلكتروني الجامعي';
+  translations.en.elearning_email_label = 'University Email Address';
+  
+  translations.ar.elearning_pass_label = 'كلمة المرور';
+  translations.en.elearning_pass_label = 'Password';
+  
+  translations.ar.elearning_btn = 'تسجيل الدخول للنظام';
+  translations.en.elearning_btn = 'Access Portal';
+  
+  translations.ar.elearning_forgot = 'نسيت كلمة المرور؟';
+  translations.en.elearning_forgot = 'Forgot Password?';
+  
+  translations.ar.elearning_back = 'الموقع الرئيسي';
+  translations.en.elearning_back = 'Back to Website';
+  
+  translations.ar.elearning_support = 'للدعم الفني المباشر، يرجى التواصل مع <a href="unit-it.html">شعبة تكنولوجيا المعلومات</a>.';
+  translations.en.elearning_support = 'For technical assistance, please contact the <a href="unit-it.html">IT Service Center</a>.';
+
+  window.KU_PAGE='students.html'; /* Keep student navbar link active */
+  window.KU_NAV_SOLID=false; /* Transparent navbar overlay fitting the portal design */
+</script>
+<script src="js/navbar.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Interactive Logic for Authentification Simulation -->
+<script>
+  // Toggle Password Visibility
+  function togglePass() {
+    const p = document.getElementById('pass-input');
+    const toggleIcon = document.querySelector('.pass-toggle');
+    if (p.type === 'password') {
+      p.type = 'text';
+      toggleIcon.classList.remove('fa-eye');
+      toggleIcon.classList.add('fa-eye-slash');
+    } else {
+      p.type = 'password';
+      toggleIcon.classList.remove('fa-eye-slash');
+      toggleIcon.classList.add('fa-eye');
+    }
+  }
+
+  // Auto-Fill Demo Credentials feature with visual feedback
+  function fillDemo() {
+    const e = document.getElementById('email-input');
+    const p = document.getElementById('pass-input');
+    const fbtn = document.getElementById('autofill-btn');
+    const isEn = document.documentElement.lang === 'en';
+    
+    // Simulate natural typing with slight delay
+    e.value = ''; p.value = '';
+    e.focus();
+    
+    setTimeout(() => {
+      e.value = 'student@alkunooz.edu.iq';
+      p.focus();
+    }, 150);
+    
+    setTimeout(() => {
+      p.value = '12345678';
+      // Change autofill button state momentarily to signal success
+      fbtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>' + (isEn ? 'Filled!' : 'تم التعبئة!') + '</span>';
+      fbtn.style.borderColor = 'var(--teal)';
+      fbtn.style.color = 'var(--teal)';
+      
+      setTimeout(() => {
+        document.getElementById('login-btn').focus();
+        fbtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> <span data-t="elearning_autofill">' + (isEn ? 'Auto-Fill Credentials' : 'تعبئة الحساب التجريبي') + '</span>';
+        fbtn.style.borderColor = 'var(--gray-300)';
+        fbtn.style.color = 'var(--navy)';
+      }, 1000);
+    }, 300);
+  }
+
+  // Handle Login Validation
+  document.getElementById('elearning-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('email-input').value;
+    const pass = document.getElementById('pass-input').value;
+    const err = document.getElementById('login-error');
+    const btn = document.getElementById('login-btn');
+    
+    // Hide error smoothly
+    err.style.display = 'none';
+    
+    // Formulate Loading Button State Request
+    const isEn = document.documentElement.lang === 'en';
+    const originalContent = btn.innerHTML;
+    const loadingText = isEn ? 'Authenticating...' : 'جاري التحقق...';
+    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> <span>' + loadingText + '</span>';
+    btn.style.opacity = '0.9';
+    btn.style.pointerEvents = 'none';
+
+    // Fake generic network request
+    setTimeout(() => {
+      if(email === 'student@alkunooz.edu.iq' && pass === '12345678') {
+        // Success: Redirect Mode
+        const successText = isEn ? 'Secure Redirecting...' : 'جاري التوجيه الآمن...';
+        btn.innerHTML = '<i class="fa-solid fa-shield-check" style="color:var(--gold-light)"></i> <span>' + successText + '</span>';
+        btn.style.background = 'linear-gradient(135deg, var(--teal) 0%, #047857 100%)';
+        btn.style.boxShadow = '0 8px 24px -6px rgba(4,120,87,0.5)';
+        setTimeout(() => {
+          window.location.href = 'student-dashboard.html';
+        }, 800);
+      } else {
+        // Error: Show message, shake, restore button payload
+        err.style.display = 'flex';
+        // force reflow to execute CSS animation again cleanly
+        err.style.animation = 'none';
+        err.offsetHeight; 
+        err.style.animation = 'errShake 0.4s ease forwards';
+        
+        // Restore standard button layout
+        btn.innerHTML = originalContent;
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+      }
+    }, 1400); // 1.4s delay for solid perceived authenticity
+  });
+</script>
+</body>
+</html>

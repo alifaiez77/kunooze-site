@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سجل الدرجات | Al-Kunooz University</title>
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div id="navbar-root"></div>
+
+<div class="dashboard-wrap">
+  <div class="dashboard-container">
+    
+    <aside class="dash-sidebar">
+      <div class="dash-user">
+        <div class="dash-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+        <div style="flex:1">
+          <h3 style="font-size:18px;font-weight:900;color:var(--navy);margin-bottom:4px" data-t="dash_student_name">أحمد عبدالله</h3>
+          <p style="font-size:13px;color:var(--gray-500);font-family:monospace;margin-bottom:8px">student@alkunooz.edu.iq</p>
+          <span style="font-size:11.5px;font-weight:800;color:var(--teal);background:rgba(14,116,144,0.1);padding:4px 10px;border-radius:6px;display:inline-block">كلية الهندسة - مرحلة ثالثة</span>
+        </div>
+      </div>
+      <nav class="dash-nav">
+        <a href="student-dashboard.html" class="dash-link"><i class="fa-solid fa-border-all"></i><span data-t="dash_nav_courses">المقررات الدراسية</span></a>
+        <a href="student-schedule.html" class="dash-link"><i class="fa-solid fa-calendar-days"></i><span data-t="dash_nav_schedule">الجدول الأسبوعي</span></a>
+        <a href="student-library.html" class="dash-link"><i class="fa-solid fa-book-open-reader"></i><span data-t="dash_nav_library">المكتبة الرقمية</span></a>
+        <a href="student-grades.html" class="dash-link active"><i class="fa-solid fa-chart-line"></i><span data-t="dash_nav_grades">سجل الدرجات</span></a>
+        <a href="elearning.html" class="dash-link" style="color:#ef4444;margin-top:24px"><i class="fa-solid fa-right-from-bracket"></i><span data-t="dash_nav_logout">تسجيل الخروج</span></a>
+      </nav>
+    </aside>
+
+    <main class="dash-main">
+      <div>
+        <h1 class="page-title">سجل الدرجات الأكاديمي</h1>
+        <p class="page-subtitle">استعرض التقييمات الفصلية، درجات الامتحانات، والمعدل التراكمي الشامل.</p>
+      </div>
+
+      <div class="gpa-summary-card">
+        <div class="gpa-info">
+          <h2>الفصل الدراسي الخريفي 2026</h2>
+          <p>إجمالي الوحدات المنجزة: 18 وحدة <span style="margin:0 10px;opacity:0.5">|</span> التقدير العام: امتياز</p>
+        </div>
+        <div class="gpa-score">
+          <span>المعدل التراكمي CGPA</span>
+          <strong>3.85</strong>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="grades-table">
+          <thead>
+            <tr>
+              <th>المقرر الدراسي</th>
+              <th>الواجبات (20)</th>
+              <th>النصفي (30)</th>
+              <th>النهائي (50)</th>
+              <th>المجموع (100)</th>
+              <th>التقدير</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="col-subject">
+                  <div class="col-subject-icon"><i class="fa-solid fa-code"></i></div>
+                  <div class="col-subject-info">
+                    <strong>هياكل البيانات والخوارزميات</strong>
+                    <small>CS201</small>
+                  </div>
+                </div>
+              </td>
+              <td>18</td>
+              <td>28</td>
+              <td>48</td>
+              <td><span style="font-size:18px;font-weight:900">94</span></td>
+              <td><span class="letter-grade grade-a">A</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-subject">
+                  <div class="col-subject-icon" style="background:#fef3c7;color:#d97706"><i class="fa-solid fa-database"></i></div>
+                  <div class="col-subject-info">
+                    <strong>تصميم وإدارة قواعد البيانات</strong>
+                    <small>CS205</small>
+                  </div>
+                </div>
+              </td>
+              <td>19</td>
+              <td>25</td>
+              <td>43</td>
+              <td><span style="font-size:18px;font-weight:900">87</span></td>
+              <td><span class="letter-grade grade-b">B+</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-subject">
+                  <div class="col-subject-icon" style="background:#e0e7ff;color:#4f46e5"><i class="fa-solid fa-microchip"></i></div>
+                  <div class="col-subject-info">
+                    <strong>معمارية الحاسوب المتقدمة</strong>
+                    <small>CE301</small>
+                  </div>
+                </div>
+              </td>
+              <td>15</td>
+              <td>24</td>
+              <td>39</td>
+              <td><span style="font-size:18px;font-weight:900">78</span></td>
+              <td><span class="letter-grade grade-c">C+</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="col-subject">
+                  <div class="col-subject-icon" style="background:#fce7f3;color:#db2777"><i class="fa-solid fa-chart-pie"></i></div>
+                  <div class="col-subject-info">
+                    <strong>الرياضيات المتقطعة</strong>
+                    <small>MA102</small>
+                  </div>
+                </div>
+              </td>
+              <td>20</td>
+              <td>29</td>
+              <td>49</td>
+              <td><span style="font-size:18px;font-weight:900">98</span></td>
+              <td><span class="letter-grade grade-a">A+</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </main>
+
+  </div>
+</div>
+
+<script src="js/translations.js"></script>
+<script>
+  window.KU_PAGE='students.html'; 
+  window.KU_NAV_SOLID=true;
+</script>
+<script src="js/navbar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
