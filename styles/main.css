@@ -1581,10 +1581,59 @@ html[dir=ltr] .alert-bar{border-right:none;border-left:3px solid #ef4444}
   .course-badge { font-size: 10px; padding: 4px 8px; }
   .lecture-card { padding: 16px; flex-direction: column; align-items: flex-start; }
   .lecture-time { border-inline-end: none; border-bottom: 1px solid var(--gray-100); padding-bottom: 12px; margin-bottom: 8px; width: 100%; }
-  
+
   .schedule-card { flex-direction: column; gap: 16px; padding: 20px; }
   .sc-time { width: 100%; border-inline-end: none; border-bottom: 2px dashed var(--gray-200); margin-inline-end: 0; padding-inline-end: 0; padding-bottom: 16px; flex-direction: row; justify-content: flex-start; align-items: center; gap: 12px; }
   .sc-badge { position: relative; top: 0; inset-inline-end: 0; margin-top: 12px; display: inline-block; width: fit-content; }
+}
+
+/* ===================================================================
+   RESPONSIVE PHASE 5 — Mobile & Tablet Complete Fix
+   =================================================================== */
+
+/* ── Tablet Landscape (769–1024px) ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .vmc-grid { grid-template-columns: repeat(2, 1fr); }
+  .dept-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* ── Mobile (≤480px): تقليل padding وإصلاح الشبكات ── */
+@media (max-width: 480px) {
+  .container { padding-inline: 16px; }
+  .dept-grid,
+  .news-grid,
+  .student-cards,
+  .unit-grid { grid-template-columns: 1fr; }
+  .about-section { gap: 32px; }
+  .about-img-badge { inset-inline-end: 8px; bottom: -10px; min-width: 100px; padding: 12px 14px; }
+  .about-img-badge strong { font-size: 1.4rem; }
+  .hero-subtitle { font-size: 14.5px; }
+  .featured-content { padding: 24px; }
+  .article-img { height: 220px; }
+  .article-title { font-size: 20px; }
+}
+
+/* ── Small Phones (≤380px) ── */
+@media (max-width: 380px) {
+  :root { --nav-h: 60px; }
+  .container { padding-inline: 12px; }
+  .hero-content { padding: 90px 0 36px; }
+  .hero-title { font-size: 1.65rem; line-height: 1.2; }
+  .hero-badge { font-size: 11px; padding: 5px 12px; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .section-title { font-size: 1.3rem; }
+  .stat-num { font-size: 2rem; }
+  .btn-lg { padding: 13px 22px; font-size: 14px; }
+  .page-hero-content h1 { font-size: 1.5rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-uni-name { font-size: 14px; }
+  .gpa-summary-card { padding: 24px; }
+  .assign-card { padding: 16px; }
+  .lecture-card { padding: 14px; }
+  .portal-card { padding: 28px 16px; }
 }
 
 
