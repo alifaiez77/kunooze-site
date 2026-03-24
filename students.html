@@ -3,36 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بوابة الطلاب | Al-Kunooz University</title>
-<meta name="description" content="جميع الخدمات الطلابية في قاعة واحدة لجامعة الكنوز">
+<title>بوابة الطلاب | جامعة الكنوز</title>
+<meta name="description" content="منصات التعليم الإلكتروني الرسمية لطلبة جامعة الكنوز — مسار بولونيا وتطبيق hepiq">
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<!-- ==========================================
-     WP MAPPING: header.php
-     ========================================== -->
 <div id="navbar-root"></div>
 
-<!-- ==========================================
-     WP MAPPING: page-students.php
-     ========================================== -->
+<!-- ═══ Page Hero ═══ -->
 <section class="page-hero">
   <div class="page-hero-bg" style="background-image:url('image/6087photo_2026-02-25_08-34-46.webp')"></div>
   <div class="page-hero-overlay"></div>
   <div class="container page-hero-content">
-    <div class="breadcrumb"><a href="index.html" data-t="nav_home">الرئيسية</a><i class="fa-solid fa-chevron-left"></i><span data-t="students_page_title">بوابة الطلاب</span></div>
-    <h1 data-t="students_page_title">بوابة الطلاب</h1>
-    <p data-t="students_page_sub">وصول سريع لجميع الأنظمة والخدمات الطلابية الأكاديمية</p>
+    <div class="breadcrumb">
+      <a href="index.html" data-t="nav_home">الرئيسية</a>
+      <i class="fa-solid fa-chevron-left"></i>
+      <span>بوابة الطلاب</span>
+    </div>
+    <h1>بوابة الطلاب</h1>
+    <p>منصات التعليم الإلكتروني الرسمية لطلبة جامعة الكنوز</p>
   </div>
 </section>
 
+<!-- ═══ المحتوى الرئيسي ═══ -->
 <section class="section section-bg">
   <div class="container portal-layout">
-    
+
+    <!-- ────────────────────────────────────
+         العمود الرئيسي
+         ──────────────────────────────────── -->
     <div class="portal-main reveal-scale">
-      
-      <!-- Alert -->
+
+      <!-- تنبيه -->
       <div class="alert-bar">
         <i class="fa-solid fa-triangle-exclamation"></i>
         <div>
@@ -41,123 +44,274 @@
         </div>
       </div>
 
-      <!-- Quick Links -->
+      <!-- روابط سريعة -->
       <div class="quick-links">
-        <a href="elearning.html" class="ql-btn"><i class="fa-solid fa-laptop-file"></i>نظام التعلم LMS</a>
-        <a href="#" class="ql-btn"><i class="fa-solid fa-envelope"></i>البريد الجامعي</a>
-        <a href="#" class="ql-btn"><i class="fa-solid fa-calendar-days"></i>التقويم الأكاديمي</a>
-        <a href="downloads.html" class="ql-btn"><i class="fa-solid fa-file-pdf"></i>النماذج والمستندات</a>
+        <a href="#sec-platforms" class="ql-btn"><i class="fa-solid fa-route"></i>مسار بولونيا</a>
+        <a href="#sec-platforms" class="ql-btn"><i class="fa-solid fa-mobile-screen-button"></i>تطبيق hepiq</a>
+        <a href="downloads.html"  class="ql-btn"><i class="fa-solid fa-file-pdf"></i>النماذج والمستندات</a>
+        <a href="unit-it.html"    class="ql-btn"><i class="fa-solid fa-headset"></i>الدعم الفني</a>
       </div>
 
-      <h2 style="font-size:1.8rem;font-weight:800;color:var(--navy);margin-bottom:8px">الخدمات الإلكترونية</h2>
-      <p style="color:var(--gray-500);margin-bottom:32px">كل ما تحتاجه لإدارة مسيرتك الأكاديمية بنجاح عبر منصة واحدة متكاملة.</p>
+      <!-- ══════════════════════════════════
+           ١ — المنصات التعليمية (الكروت)
+           ══════════════════════════════════ -->
+      <div class="students-block" id="sec-platforms">
+        <div class="students-block-header">
+          <span class="section-eyebrow">الأنظمة المعتمدة</span>
+          <h2 class="section-title">المنصات التعليمية</h2>
+          <p class="section-subtitle" style="margin-inline:0">الأنظمة الرسمية للوصول إلى المقررات والمحاضرات في جامعة الكنوز.</p>
+        </div>
 
-      <!-- ==========================================
-           WP MAPPING: "Student Services" Loop
-           ========================================== -->
-      <div class="student-cards">
-        <!-- LOOP ITEM START -->
-        <!-- 1 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-blue"><i class="fa-solid fa-laptop-file"></i></div>
-          <h3>نظام إدارة التعلم (LMS)</h3>
-          <p>أدوات تعليمية، محاضرات مسجلة، وتواصل مباشر مع الأساتذة.</p>
-          <a href="student-lms.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>دخول للنظام</a>
-        </div>
-        <!-- 2 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-teal"><i class="fa-solid fa-book-open"></i></div>
-          <h3>التسجيل الأكاديمي</h3>
-          <p>إضافة وحذف المواد، استعراض الجدول الدراسي، واختيار الشعب المتاحة.</p>
-          <a href="elearning.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>الخدمات الإلكترونية</a>
-        </div>
-        <!-- 3 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-gold"><i class="fa-regular fa-calendar-days"></i></div>
-          <h3>الجدول الأسبوعي</h3>
-          <p>استعراض المحاضرات، القاعات الدراسية، وأوقات المختبرات الخاصة بك.</p>
-          <a href="student-schedule.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>عرض الجدول</a>
-        </div>
-        <!-- 4 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-purple"><i class="fa-solid fa-chart-simple"></i></div>
-          <h3>سجل الدرجات</h3>
-          <p>استعراض كشف الدرجات الفصلي والتراكمي (GPA) بشكل محدث.</p>
-          <a href="elearning.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>عرض الدرجات</a>
-        </div>
-        <!-- 5 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-green"><i class="fa-solid fa-book-journal-whills"></i></div>
-          <h3>المكتبة الرقمية</h3>
-          <p>الوصول لآلاف المصادر، الكتب، والبحوث العلمية המعتمدة.</p>
-          <a href="elearning.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>زيارة المكتبة</a>
-        </div>
-        <!-- 6 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-red"><i class="fa-regular fa-id-card"></i></div>
-          <h3>بوابة الطالب</h3>
-          <p>لوحة التحكم الرئيسية لإدارة ملفك الأكاديمي، المهام، والجدول الأسبوعي.</p>
-          <a href="student-dashboard.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>دخول للبوابة</a>
-        </div>
-        <!-- 7 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-navy" style="background:rgba(12,27,62,.10);color:var(--navy)"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-          <h3>الشؤون المالية</h3>
-          <p>استعراض كشف الحساب، تسديد الأقساط إلكترونياً، وجدولة الدفعات.</p>
-          <a href="student-finance.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>النظام المالي</a>
-        </div>
-        <!-- 8 -->
-        <div class="student-card">
-          <div class="student-card-icon sc-teal"><i class="fa-solid fa-file-signature"></i></div>
-          <h3>طلب الوثائق والتأييدات</h3>
-          <p>طلب تأييد استمرارية، وثيقة تخرج، وباقي المعاملات الطلابية.</p>
-          <a href="elearning.html" class="btn btn-navy" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i>تقديم طلب</a>
+        <div class="student-cards">
+
+          <!-- مسار بولونيا -->
+          <div class="student-card">
+            <div class="student-card-icon sc-blue"><i class="fa-solid fa-route"></i></div>
+            <h3>مسار بولونيا التعليمي</h3>
+            <p>المنصة الأكاديمية المعتمدة لإدارة المقررات والجداول والواجبات وفق نظام بولونيا للتعليم العالي.</p>
+            <div class="student-card-actions">
+              <a href="#" class="btn btn-navy btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i>دخول للمنصة</a>
+            </div>
+          </div>
+
+          <!-- hepiq -->
+          <div class="student-card">
+            <div class="student-card-icon sc-teal"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3>تطبيق hepiq التعليمي</h3>
+            <p>تطبيق الهاتف الذكي للوصول إلى المحاضرات والمواد الدراسية في أي وقت ومن أي مكان.</p>
+            <div class="student-card-actions">
+              <a href="#" class="btn btn-navy btn-sm"><i class="fa-brands fa-google-play"></i>Android</a>
+              <a href="#" class="btn btn-outline-navy btn-sm"><i class="fa-brands fa-apple"></i>iOS</a>
+            </div>
+          </div>
+
+          <!-- الوثائق -->
+          <div class="student-card">
+            <div class="student-card-icon sc-gold"><i class="fa-solid fa-file-signature"></i></div>
+            <h3>الوثائق والمستندات</h3>
+            <p>تحميل النماذج الرسمية وطلب تأييدات التخرج وباقي المعاملات الطلابية.</p>
+            <div class="student-card-actions">
+              <a href="downloads.html" class="btn btn-navy btn-sm"><i class="fa-solid fa-arrow-left"></i>مركز التحميل</a>
+            </div>
+          </div>
+
         </div>
       </div>
 
-    </div>
+      <!-- ══════════════════════════════════
+           ٢ — فيديوهات الشرح
+           ══════════════════════════════════ -->
+      <div class="students-block">
+        <div class="students-block-header">
+          <span class="section-eyebrow">فيديوهات توضيحية</span>
+          <h2 class="section-title">شرح استخدام المنصات</h2>
+          <p class="section-subtitle" style="margin-inline:0">شاهد الفيديوهات لتتعرف على كيفية استخدام كل منصة بشكل صحيح.</p>
+        </div>
 
-    <!-- Sidebar -->
+        <div class="yt-grid">
+
+          <!-- فيديو بولونيا -->
+          <div class="yt-item">
+            <div class="yt-label">
+              <i class="fa-brands fa-youtube"></i>
+              شرح مسار بولونيا التعليمي
+            </div>
+            <div class="yt-embed-wrap">
+              <!-- استبدل BOLOGNA_VIDEO_ID بالمعرف من رابط يوتيوب (الحروف بعد ?v=) -->
+              <iframe
+                src="https://www.youtube.com/embed/BOLOGNA_VIDEO_ID"
+                title="شرح مسار بولونيا التعليمي"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- فيديو hepiq -->
+          <div class="yt-item">
+            <div class="yt-label">
+              <i class="fa-brands fa-youtube"></i>
+              شرح تطبيق hepiq التعليمي
+            </div>
+            <div class="yt-embed-wrap">
+              <!-- استبدل HEPIQ_VIDEO_ID بالمعرف من رابط يوتيوب (الحروف بعد ?v=) -->
+              <iframe
+                src="https://www.youtube.com/embed/HEPIQ_VIDEO_ID"
+                title="شرح تطبيق hepiq التعليمي"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════
+           ٣ — دليل الاستخدام خطوة بخطوة
+           ══════════════════════════════════ -->
+      <div class="students-block">
+        <div class="students-block-header">
+          <span class="section-eyebrow">خطوة بخطوة</span>
+          <h2 class="section-title">دليل استخدام المنصات</h2>
+          <p class="section-subtitle" style="margin-inline:0">اتبع الخطوات أدناه للوصول بسهولة إلى كل منصة.</p>
+        </div>
+
+        <div class="guide-grid">
+
+          <!-- دليل بولونيا -->
+          <div class="guide-card">
+            <div class="guide-card-header">
+              <div class="guide-card-icon" style="background:rgba(37,99,235,.10);color:#2563eb">
+                <i class="fa-solid fa-route"></i>
+              </div>
+              <div>
+                <h3>مسار بولونيا</h3>
+                <span class="guide-card-subtitle">منصة إدارة المقررات الأكاديمية</span>
+              </div>
+            </div>
+            <div class="guide-steps">
+              <div class="guide-step">
+                <span class="guide-step-num">1</span>
+                <p>افتح رابط منصة بولونيا الخاص بجامعة الكنوز عبر المتصفح.</p>
+              </div>
+              <div class="guide-step">
+                <span class="guide-step-num">2</span>
+                <p>سجّل الدخول برقمك الجامعي وكلمة المرور التي زُوّدت بها عند التسجيل.</p>
+              </div>
+              <div class="guide-step">
+                <span class="guide-step-num">3</span>
+                <p>اختر الفصل الدراسي الحالي لاستعراض مقرراتك والجدول الزمني.</p>
+              </div>
+              <div class="guide-step">
+                <span class="guide-step-num">4</span>
+                <p>تابع الواجبات والغيابات والمواد المرفوعة من الأساتذة.</p>
+              </div>
+            </div>
+            <div class="guide-actions">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i>دخول لمسار بولونيا</a>
+            </div>
+            <div class="guide-tip">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>في حال نسيت كلمة المرور تواصل مع وحدة تقنية المعلومات.</span>
+            </div>
+          </div>
+
+          <!-- دليل hepiq -->
+          <div class="guide-card">
+            <div class="guide-card-header">
+              <div class="guide-card-icon" style="background:var(--teal-pale);color:var(--teal)">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <div>
+                <h3>تطبيق hepiq</h3>
+                <span class="guide-card-subtitle">تطبيق الهاتف الذكي للمحاضرات</span>
+              </div>
+            </div>
+            <div class="guide-steps">
+              <div class="guide-step">
+                <span class="guide-step-num">1</span>
+                <p>حمّل تطبيق <strong>hepiq</strong> من Google Play أو App Store.</p>
+              </div>
+              <div class="guide-step">
+                <span class="guide-step-num">2</span>
+                <p>اختر <strong>«إنشاء حساب»</strong> وأدخل رقمك الجامعي وبريدك الرسمي.</p>
+              </div>
+              <div class="guide-step">
+                <span class="guide-step-num">3</span>
+                <p>ابحث عن <strong>جامعة الكنوز</strong> من قائمة الجامعات وأكّد الانتساب.</p>
+              </div>
+              <div class="guide-step">
+                <span class="guide-step-num">4</span>
+                <p>تصفح مقرراتك وحمّل المحاضرات وتلقّ إشعارات الأساتذة مباشرة.</p>
+              </div>
+            </div>
+            <div class="guide-actions">
+              <a href="#" class="btn btn-navy btn-sm"><i class="fa-brands fa-google-play"></i>Google Play</a>
+              <a href="#" class="btn btn-outline-navy btn-sm"><i class="fa-brands fa-apple"></i>App Store</a>
+            </div>
+            <div class="guide-tip">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>التطبيق مجاني لجميع الطلبة المسجلين. تأكد من تحديثه دائماً.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════
+           شريط الدعم التقني
+           ══════════════════════════════════ -->
+      <div class="support-banner reveal students-block">
+        <div class="support-banner-icon"><i class="fa-solid fa-headset"></i></div>
+        <div class="support-banner-text">
+          <h4>هل تواجه مشكلة في أحد الأنظمة؟</h4>
+          <p>سواء كانت مشكلة في الدخول أو التحميل أو عدم فهم آلية الاستخدام — فريق الدعم الفني جاهز لمساعدتك.</p>
+        </div>
+        <a href="unit-it.html" class="btn btn-gold"><i class="fa-solid fa-arrow-left"></i>وحدة الدعم الفني (IT)</a>
+      </div>
+
+    </div><!-- /portal-main -->
+
+    <!-- ────────────────────────────────────
+         الشريط الجانبي
+         ──────────────────────────────────── -->
     <div class="sidebar reveal-l">
-      <!-- Login -->
-      <div style="margin-bottom:40px;text-align:center;padding:24px;background:var(--grad-navy);border-radius:var(--radius-lg);color:#fff;box-shadow:var(--shadow-md)">
-        <i class="fa-solid fa-circle-user" style="font-size:48px;color:rgba(255,255,255,.2);margin-bottom:16px"></i>
-        <h3 style="font-size:16px;font-weight:800;margin-bottom:8px">تسجيل الدخول الموحد</h3>
-        <p style="font-size:12.5px;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.6">استخدم بريدك الجامعي وكلمة المرور للوصول لكافة الخدمات.</p>
-        <a href="elearning.html" class="btn btn-gold" style="width:100%"><i class="fa-solid fa-right-to-bracket"></i>دخول</a>
+
+      <!-- بطاقة الدعم الفني -->
+      <div class="sidebar-support-card">
+        <div class="sidebar-support-header">
+          <div class="sidebar-support-icon"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <div class="sidebar-support-title">الدعم الفني</div>
+            <div class="sidebar-support-sub">وحدة تقنية المعلومات</div>
+          </div>
+        </div>
+        <p class="sidebar-support-desc">للتواصل في حال وجود أي مشكلة تقنية مع المنصات أو التطبيقات.</p>
+        <div class="sidebar-support-contacts">
+          <a href="tel:009647000000005" dir="ltr" class="sidebar-contact-link">
+            <i class="fa-solid fa-phone"></i>+964 700 000 0005
+          </a>
+          <span class="sidebar-contact-email">it-support@alkunooz.edu.iq</span>
+        </div>
+        <a href="unit-it.html" class="btn btn-gold" style="width:100%"><i class="fa-solid fa-arrow-left"></i>صفحة الدعم الفني</a>
       </div>
 
-      <!-- Announcements -->
-      <h3 style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--gray-100);position:relative">
-        لوحة الإعلانات
-        <span style="position:absolute;bottom:-1px;inset-inline-start:0;width:40px;height:3px;background:var(--teal);border-radius:2px"></span>
-      </h3>
+      <!-- تحميل التطبيق -->
+      <div class="sidebar-download-card">
+        <h3 class="sidebar-section-title">تحميل تطبيق hepiq</h3>
+        <div class="sidebar-download-btns">
+          <a href="#" class="btn btn-navy btn-sm" style="width:100%;justify-content:center"><i class="fa-brands fa-google-play"></i>تحميل — Android</a>
+          <a href="#" class="btn btn-outline-navy btn-sm" style="width:100%;justify-content:center"><i class="fa-brands fa-apple"></i>تحميل — iOS</a>
+        </div>
+      </div>
+
+      <!-- لوحة الإعلانات -->
+      <h3 class="sidebar-section-title">لوحة الإعلانات</h3>
       <div>
         <div class="announcement-item">
           <h4>انطلاق بطولة الجامعة لخماسي الكرة</h4>
           <p>سيتم فتح باب التسجيل للفرق عبر ممثلي الشعب.</p>
-          <span class="announcement-date"><i class="fa-solid fa-clock" style="margin-inline-end:4px"></i>قبل ساعتين</span>
+          <span class="announcement-date"><i class="fa-solid fa-clock"></i>قبل ساعتين</span>
         </div>
         <div class="announcement-item">
           <h4>تحديث في مواعيد الحافلات الجامعية</h4>
           <p>تم إضافة خطوط جديدة وتقليل زمن التقاطر استجابةً للطلبات.</p>
-          <span class="announcement-date"><i class="fa-solid fa-clock" style="margin-inline-end:4px"></i>الأمس</span>
+          <span class="announcement-date"><i class="fa-solid fa-clock"></i>الأمس</span>
         </div>
         <div class="announcement-item">
           <h4>ورشة عمل مجانية حول كتابة السيرة الذاتية</h4>
           <p>برعاية قسم التوظيف والخريجين في المكتبة المركزية.</p>
-          <span class="announcement-date"><i class="fa-solid fa-clock" style="margin-inline-end:4px"></i>قبل 3 أيام</span>
+          <span class="announcement-date"><i class="fa-solid fa-clock"></i>قبل 3 أيام</span>
         </div>
       </div>
       <a href="news.html" class="btn btn-outline-navy btn-sm" style="width:100%;margin-top:20px">عرض كل الإعلانات</a>
-    </div>
+
+    </div><!-- /sidebar -->
 
   </div>
 </section>
 
-<!-- ==========================================
-     WP MAPPING: footer.php
-     ========================================== -->
 <script src="js/footer.js"></script>
 <script src="js/translations.js"></script>
 <script>window.KU_PAGE='students.html';window.KU_NAV_SOLID=true;</script>

@@ -49,8 +49,8 @@ const footerTemplate = `
     <div class="footer-bottom">
       <span data-t="footer_copy">© 2026 جامعة الكنوز. جميع الحقوق محفوظة.</span>
       <div class="footer-bottom-links">
-        <a href="#">سياسة الخصوصية</a>
-        <a href="#">شروط الاستخدام</a>
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الاستخدام</a>
         <a href="contact.html">اتصل بنا</a>
       </div>
     </div>
