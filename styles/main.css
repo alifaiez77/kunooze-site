@@ -1636,4 +1636,60 @@ html[dir=ltr] .alert-bar{border-right:none;border-left:3px solid #ef4444}
   .portal-card { padding: 28px 16px; }
 }
 
+/* ===================================================================
+   ABOUT PAGE — Responsive Classes (replaces inline styles)
+   =================================================================== */
+
+/* Overview grid: desktop */
+.about-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Stats info card */
+.about-stats-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  background: var(--gray-50);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--gray-100);
+}
+
+/* Org chart wrapper */
+.org-chart-wrap {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--gray-100);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .about-overview-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .about-stats-card { padding: 24px; }
+  .org-chart-wrap { padding: 28px; }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .about-overview-grid { gap: 24px; }
+  .about-stats-card { padding: 18px; gap: 12px; }
+  .org-chart-wrap { padding: 18px; }
+}
+
+/* Very small phones (≤380px) */
+@media (max-width: 380px) {
+  .about-stats-card { padding: 14px; gap: 10px; }
+  .org-chart-wrap { padding: 14px; }
+}
+
 
