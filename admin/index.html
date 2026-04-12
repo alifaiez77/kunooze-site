@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الإدارة — جامعة الكنوز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="admin.css">
+<style>
+.demo-banner{background:linear-gradient(90deg,#f59e0b,#d97706);color:#fff;text-align:center;padding:7px 16px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;position:sticky;top:0;z-index:999}
+.demo-banner i{font-size:14px}
+.demo-banner button{background:rgba(255,255,255,.25);border:none;color:#fff;padding:2px 10px;border-radius:6px;font-size:12px;cursor:pointer;margin-right:8px}
+.demo-banner button:hover{background:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+
+<!-- Demo mode banner -->
+<div class="demo-banner" id="demoBanner">
+  <i class="fa-solid fa-flask-vial"></i>
+  وضع العرض التجريبي — البيانات وهمية للاستعراض فقط
+  <button onclick="document.getElementById('demoBanner').style.display='none'"><i class="fa-solid fa-xmark"></i> إخفاء</button>
+</div>
+
+<!-- ══════════════ LAYOUT ══════════════ -->
+<div class="layout" id="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div class="sb-logo">
+        <div class="sb-logo-icon"><i class="fa-solid fa-landmark"></i></div>
+        <div class="sb-logo-text">
+          <span class="sb-logo-ar">جامعة الكنوز</span>
+          <span class="sb-logo-en">Al-Kunooz</span>
+        </div>
+      </div>
+      <button class="sb-collapse" id="sbCollapse" onclick="toggleSidebar()">
+        <i class="fa-solid fa-angles-right"></i>
+      </button>
+    </div>
+
+    <nav class="sb-nav">
+      <div class="sb-nav-label">القائمة الرئيسية</div>
+      <a class="sb-item active" data-section="overview" onclick="Router.go('overview')">
+        <i class="fa-solid fa-gauge"></i><span>نظرة عامة</span>
+      </a>
+      <a class="sb-item" data-section="news" onclick="Router.go('news')">
+        <i class="fa-solid fa-newspaper"></i><span>الأخبار</span>
+        <span class="sb-badge" id="badgeNews" style="display:none"></span>
+      </a>
+      <a class="sb-item" data-section="departments" onclick="Router.go('departments')">
+        <i class="fa-solid fa-building-columns"></i><span>الكليات</span>
+      </a>
+      <a class="sb-item" data-section="gallery" onclick="Router.go('gallery')">
+        <i class="fa-solid fa-images"></i><span>معرض الصور</span>
+      </a>
+      <a class="sb-item" data-section="downloads" onclick="Router.go('downloads')">
+        <i class="fa-solid fa-download"></i><span>التحميلات</span>
+      </a>
+      <a class="sb-item" data-section="faculty" onclick="Router.go('faculty')">
+        <i class="fa-solid fa-chalkboard-user"></i><span>الكادر التدريسي</span>
+      </a>
+
+      <div class="sb-nav-label" style="margin-top:8px">المحتوى المؤسسي</div>
+      <a class="sb-item" data-section="identity" onclick="Router.go('identity')">
+        <i class="fa-solid fa-landmark-flag"></i><span>الهوية المؤسسية</span>
+      </a>
+      <a class="sb-item" data-section="orgchart" onclick="Router.go('orgchart')">
+        <i class="fa-solid fa-sitemap"></i><span>الهيكل التنظيمي</span>
+      </a>
+
+      <div class="sb-nav-label" style="margin-top:8px">التفاعل</div>
+      <a class="sb-item" data-section="contacts" onclick="Router.go('contacts')">
+        <i class="fa-solid fa-envelope"></i><span>رسائل التواصل</span>
+        <span class="sb-badge" id="badgeContacts" style="display:none"></span>
+      </a>
+      <a class="sb-item" data-section="admissions" onclick="Router.go('admissions')">
+        <i class="fa-solid fa-graduation-cap"></i><span>طلبات القبول</span>
+        <span class="sb-badge" id="badgeAdmissions" style="display:none"></span>
+      </a>
+      <a class="sb-item" data-section="studentsContent" onclick="Router.go('studentsContent')">
+        <i class="fa-solid fa-users-rectangle"></i><span>محتوى صفحة الطلاب</span>
+      </a>
+
+      <div class="sb-nav-label" style="margin-top:8px">الإعدادات</div>
+      <a class="sb-item" data-section="admins" onclick="Router.go('admins')">
+        <i class="fa-solid fa-user-shield"></i><span>مدراء النظام</span>
+      </a>
+    </nav>
+
+    <div class="sb-bottom">
+      <div class="sb-user">
+        <div class="sb-avatar" id="sbAvatar">A</div>
+        <div class="sb-user-info">
+          <span class="sb-user-name" id="sbUserName">مدير النظام</span>
+          <span class="sb-user-role" id="sbUserRole">superadmin</span>
+        </div>
+      </div>
+      <button class="sb-logout" onclick="App.logout()" title="تسجيل الخروج">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <div class="main" id="mainArea">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="tb-right">
+        <button class="tb-menu" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <div class="tb-breadcrumb">
+          <span class="tb-site">جامعة الكنوز</span>
+          <i class="fa-solid fa-chevron-left tb-sep"></i>
+          <span class="tb-page" id="tbPage">نظرة عامة</span>
+        </div>
+      </div>
+      <div class="tb-left">
+        <button class="tb-icon-btn" id="tbNotif" onclick="Router.go('contacts')" title="رسائل جديدة">
+          <i class="fa-regular fa-bell"></i>
+          <span class="tb-dot" id="tbDot" style="display:none"></span>
+        </button>
+        <a href="../index.html" target="_blank" class="tb-icon-btn" title="عرض الموقع">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <div class="tb-user-mini">
+          <div class="tb-avatar" id="tbAvatar">A</div>
+          <span id="tbUserName">أدمن</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="content" id="mainContent">
+      <div class="loading-page">
+        <div class="spin-lg"></div>
+        <p>جاري التحميل...</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Sidebar overlay (mobile) -->
+<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ══════════════ TOASTS ══════════════ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ══════════════ MODALS ══════════════ -->
+
+<!-- News Modal -->
+<div class="modal" id="newsModal">
+  <div class="modal-box modal-lg">
+    <div class="modal-head">
+      <h3 id="newsModalTitle">إضافة خبر جديد</h3>
+      <button class="modal-close" onclick="Modal.close('newsModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="newsForm">
+      <input type="hidden" id="newsId">
+      <div class="modal-body">
+        <div class="fg2">
+          <div class="fg"><label class="fl">العنوان بالعربية *</label><input type="text" class="fi" id="newsTitleAr" placeholder="أدخل العنوان" required></div>
+          <div class="fg"><label class="fl">Title in English</label><input type="text" class="fi" id="newsTitleEn" placeholder="Enter title" dir="ltr"></div>
+        </div>
+        <div class="fg"><label class="fl">المحتوى بالعربية *</label><textarea class="fi fta" id="newsBodyAr" rows="4" placeholder="أدخل محتوى الخبر" required></textarea></div>
+        <div class="fg"><label class="fl">Body in English</label><textarea class="fi fta" id="newsBodyEn" rows="3" placeholder="Enter news body" dir="ltr"></textarea></div>
+        <div class="fg3">
+          <div class="fg">
+            <label class="fl">التصنيف</label>
+            <select class="fi fsel" id="newsCategory">
+              <option value="announcement">إعلان</option>
+              <option value="academic">أكاديمي</option>
+              <option value="partnership">شراكة</option>
+              <option value="event">فعالية</option>
+              <option value="research">بحث علمي</option>
+              <option value="other">أخرى</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">صورة الخبر</label>
+            <input type="file" class="fi" id="newsImage" accept="image/*">
+          </div>
+          <div class="fg fg-check">
+            <label class="fl">حالة النشر</label>
+            <label class="toggle-label">
+              <input type="checkbox" id="newsPublished" checked>
+              <span class="toggle-track"></span>
+              <span class="toggle-txt">منشور</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('newsModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="newsSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Contact View Modal -->
+<div class="modal" id="contactModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>رسالة التواصل</h3>
+      <button class="modal-close" onclick="Modal.close('contactModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <div class="modal-body" id="contactModalBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="Modal.close('contactModal')">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admission View Modal -->
+<div class="modal" id="admissionModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>تفاصيل طلب القبول</h3>
+      <button class="modal-close" onclick="Modal.close('admissionModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <div class="modal-body" id="admissionModalBody"></div>
+    <div class="modal-foot" id="admissionModalFoot">
+      <button class="btn btn-ghost" onclick="Modal.close('admissionModal')">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery Upload Modal -->
+<div class="modal" id="galleryModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>رفع صور جديدة</h3>
+      <button class="modal-close" onclick="Modal.close('galleryModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <div class="modal-body">
+      <div class="fg">
+        <label class="fl">التصنيف</label>
+        <select class="fi fsel" id="galCat">
+          <option value="campus">الحرم الجامعي</option>
+          <option value="events">فعاليات</option>
+          <option value="labs">مختبرات</option>
+          <option value="graduation">تخرج</option>
+          <option value="sports">رياضة</option>
+          <option value="other">أخرى</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">الصور (يمكن اختيار أكثر من صورة)</label>
+        <div class="dropzone" id="galDropzone" onclick="document.getElementById('galFiles').click()">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <p>انقر لاختيار الصور أو اسحب وأفلت هنا</p>
+          <span id="galFilesCount"></span>
+        </div>
+        <input type="file" id="galFiles" accept="image/*" multiple style="display:none" onchange="updateDropzone()">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="Modal.close('galleryModal')">إلغاء</button>
+      <button class="btn btn-primary" id="galUploadBtn" onclick="Gallery.upload()"><i class="fa-solid fa-upload"></i> رفع</button>
+    </div>
+  </div>
+</div>
+
+<!-- Download Upload Modal -->
+<div class="modal" id="downloadModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>إضافة ملف جديد</h3>
+      <button class="modal-close" onclick="Modal.close('downloadModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <div class="modal-body">
+      <div class="fg2">
+        <div class="fg"><label class="fl">العنوان بالعربية *</label><input type="text" class="fi" id="dlTitleAr" required></div>
+        <div class="fg"><label class="fl">Title in English</label><input type="text" class="fi" id="dlTitleEn" dir="ltr"></div>
+      </div>
+      <div class="fg2">
+        <div class="fg">
+          <label class="fl">التصنيف</label>
+          <select class="fi fsel" id="dlCat">
+            <option value="forms">نماذج</option>
+            <option value="regulations">أنظمة ولوائح</option>
+            <option value="schedules">جداول دراسية</option>
+            <option value="journals">مجلات علمية</option>
+            <option value="books">كتب</option>
+            <option value="other">أخرى</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">الملف *</label>
+          <input type="file" class="fi" id="dlFile" required accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip">
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="Modal.close('downloadModal')">إلغاء</button>
+      <button class="btn btn-primary" id="dlSaveBtn" onclick="Downloads.save()"><i class="fa-solid fa-upload"></i> رفع الملف</button>
+    </div>
+  </div>
+</div>
+
+<!-- Department Add/Edit Modal (enhanced) -->
+<div class="modal" id="deptModal">
+  <div class="modal-box modal-xl">
+    <div class="modal-head">
+      <h3 id="deptModalTitle">إضافة كلية جديدة</h3>
+      <button class="modal-close" onclick="Modal.close('deptModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="deptForm">
+      <input type="hidden" id="deptId">
+      <div class="modal-body">
+        <div class="modal-section-label">المعلومات الأساسية</div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">اسم الكلية بالعربية *</label><input type="text" class="fi" id="deptNameAr" required placeholder="مثال: كلية الهندسة والتقنية"></div>
+          <div class="fg"><label class="fl">College Name in English</label><input type="text" class="fi" id="deptNameEn" dir="ltr" placeholder="e.g. College of Engineering"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">الوصف بالعربية</label><textarea class="fi fta" id="deptDescAr" rows="3" placeholder="وصف مختصر للكلية..."></textarea></div>
+          <div class="fg"><label class="fl">Description in English</label><textarea class="fi fta" id="deptDescEn" rows="3" dir="ltr" placeholder="Brief description..."></textarea></div>
+        </div>
+
+        <div class="modal-section-label">التعريف والأيقونة</div>
+        <div class="fg3">
+          <div class="fg"><label class="fl">المعرّف (Slug)</label><input type="text" class="fi" id="deptSlug" dir="ltr" placeholder="e.g. engineering"></div>
+          <div class="fg"><label class="fl">أيقونة Font Awesome</label><input type="text" class="fi" id="deptIcon" dir="ltr" placeholder="fa-microchip" oninput="Departments.previewIcon(this.value)"></div>
+          <div class="fg" style="display:flex;align-items:flex-end;padding-bottom:4px">
+            <div id="deptIconPreview" style="font-size:26px;color:var(--teal);min-width:36px"><i class="fa-solid fa-building-columns"></i></div>
+          </div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">نص الشارة بالعربية</label><input type="text" class="fi" id="deptBadgeAr" placeholder="مثال: هندسة"></div>
+          <div class="fg"><label class="fl">Badge Text in English</label><input type="text" class="fi" id="deptBadgeEn" dir="ltr" placeholder="e.g. Engineering"></div>
+        </div>
+
+        <div class="modal-section-label">الإحصائيات والتواصل</div>
+        <div class="fg3">
+          <div class="fg"><label class="fl">عدد الطلاب</label><input type="number" class="fi" id="deptStudents" min="0" placeholder="0"></div>
+          <div class="fg"><label class="fl">عدد البرامج</label><input type="number" class="fi" id="deptPrograms" min="0" placeholder="0"></div>
+          <div class="fg"><label class="fl">مدة الدراسة (سنوات)</label><input type="number" class="fi" id="deptYears" min="1" max="8" placeholder="4"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">البريد الإلكتروني</label><input type="email" class="fi" id="deptEmail" dir="ltr"></div>
+          <div class="fg"><label class="fl">الهاتف</label><input type="text" class="fi" id="deptPhone"></div>
+        </div>
+
+        <div class="modal-section-label">الصورة والبرامج</div>
+        <div class="fg">
+          <label class="fl">صورة الكلية (بانر)</label>
+          <input type="file" class="fi" id="deptImage" accept="image/*" onchange="Departments.previewImg(this)">
+          <div id="deptImgPreview" style="margin-top:8px;display:none">
+            <img id="deptImgThumb" style="max-height:120px;border-radius:8px;border:1px solid var(--border);object-fit:cover">
+          </div>
+        </div>
+        <div class="fg">
+          <label class="fl">البرامج الأكاديمية</label>
+          <div class="programs-list" id="programsList"></div>
+          <div class="prog-add-row">
+            <input type="text" class="fi" id="newProgAr" placeholder="اسم البرنامج بالعربية">
+            <input type="text" class="fi" id="newProgEn" placeholder="Program name in English" dir="ltr">
+            <button type="button" class="btn btn-outline btn-sm" onclick="Departments.addProgram()"><i class="fa-solid fa-plus"></i> إضافة</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('deptModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="deptSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Faculty Add/Edit Modal -->
+<div class="modal" id="facultyModal">
+  <div class="modal-box modal-xl">
+    <div class="modal-head">
+      <h3 id="facultyModalTitle">إضافة عضو هيئة تدريسية</h3>
+      <button class="modal-close" onclick="Modal.close('facultyModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="facultyForm">
+      <input type="hidden" id="facultyId">
+      <div class="modal-body">
+        <div class="fac-form-top">
+          <div class="fac-photo-upload" onclick="document.getElementById('facultyPhoto').click()">
+            <div class="fac-photo-preview" id="facPhotoPreview">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <span class="fac-photo-hint">انقر لرفع الصورة</span>
+            <input type="file" id="facultyPhoto" accept="image/*" style="display:none" onchange="Faculty.previewPhoto(this)">
+          </div>
+          <div class="fac-form-main">
+            <div class="fg2">
+              <div class="fg"><label class="fl">الاسم الكامل بالعربية *</label><input type="text" class="fi" id="facNameAr" required placeholder="مثال: أ.د. أحمد محمد"></div>
+              <div class="fg"><label class="fl">Full Name in English</label><input type="text" class="fi" id="facNameEn" dir="ltr" placeholder="e.g. Prof. Ahmad Mohammed"></div>
+            </div>
+            <div class="fg2">
+              <div class="fg">
+                <label class="fl">اللقب العلمي</label>
+                <select class="fi fsel" id="facTitle">
+                  <option value="professor">أستاذ (Professor)</option>
+                  <option value="assoc_professor">أستاذ مشارك (Associate Prof.)</option>
+                  <option value="asst_professor">أستاذ مساعد (Assistant Prof.)</option>
+                  <option value="lecturer">مدرّس (Lecturer)</option>
+                  <option value="instructor">مدرّس مساعد (Instructor)</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="fl">الكلية</label>
+                <select class="fi fsel" id="facDept"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">التخصص بالعربية</label><input type="text" class="fi" id="facSpecAr" placeholder="مثال: جراحة الفم والأسنان"></div>
+          <div class="fg"><label class="fl">Specialization in English</label><input type="text" class="fi" id="facSpecEn" dir="ltr" placeholder="e.g. Oral Surgery"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">البريد الإلكتروني</label><input type="email" class="fi" id="facEmail" dir="ltr"></div>
+          <div class="fg"><label class="fl">الهاتف</label><input type="text" class="fi" id="facPhone"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">السيرة الذاتية بالعربية</label><textarea class="fi fta" id="facBioAr" rows="3" placeholder="ملخص عن المسيرة المهنية..."></textarea></div>
+          <div class="fg"><label class="fl">Bio in English</label><textarea class="fi fta" id="facBioEn" rows="3" dir="ltr" placeholder="Career summary..."></textarea></div>
+        </div>
+
+        <div class="modal-section-label">المؤهلات العلمية</div>
+        <div class="qualif-list" id="qualifList"></div>
+        <div class="qualif-add-row">
+          <input type="text" class="fi" id="newQualDegree" placeholder="الدرجة العلمية (مثال: دكتوراه في طب الأسنان)" style="flex:2.5">
+          <input type="number" class="fi" id="newQualYear" placeholder="السنة" style="flex:0.7;min-width:80px" min="1950" max="2030">
+          <input type="text" class="fi" id="newQualUniv" placeholder="الجامعة" style="flex:1.5">
+          <button type="button" class="btn btn-outline btn-sm" onclick="Faculty.addQualif()"><i class="fa-solid fa-plus"></i></button>
+        </div>
+
+        <div class="modal-section-label">المقررات الدراسية</div>
+        <div class="tags-container" id="coursesTags"></div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <input type="text" class="fi" id="newCourse" placeholder="اسم المقرر الدراسي" style="flex:1">
+          <button type="button" class="btn btn-outline btn-sm" onclick="Faculty.addCourse()"><i class="fa-solid fa-plus"></i> إضافة</button>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('facultyModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="facSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- OrgChart Node Modal -->
+<div class="modal" id="orgNodeModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="orgNodeTitle">إضافة وحدة تنظيمية</h3>
+      <button class="modal-close" onclick="Modal.close('orgNodeModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="orgNodeForm">
+      <input type="hidden" id="orgNodeId">
+      <div class="modal-body">
+        <div class="fg2">
+          <div class="fg"><label class="fl">اسم الوحدة بالعربية *</label><input type="text" class="fi" id="orgNodeNameAr" required></div>
+          <div class="fg"><label class="fl">Unit Name in English</label><input type="text" class="fi" id="orgNodeNameEn" dir="ltr"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">الدور / المهام</label><input type="text" class="fi" id="orgNodeRoleAr" placeholder="مثال: الإدارة التنفيذية"></div>
+          <div class="fg"><label class="fl">Role in English</label><input type="text" class="fi" id="orgNodeRoleEn" dir="ltr" placeholder="e.g. Executive Management"></div>
+        </div>
+        <div class="fg">
+          <label class="fl">اسم شاغل المنصب</label>
+          <input type="text" class="fi" id="orgNodeHolder" placeholder="اسم الشخص (اختياري)">
+        </div>
+        <div class="fg">
+          <label class="fl">تابع لـ (الوحدة الأعلى)</label>
+          <select class="fi fsel" id="orgNodeParent">
+            <option value="">— لا يوجد (وحدة جذر) —</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('orgNodeModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="orgNodeSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Admin Add/Edit Modal -->
+<div class="modal" id="adminModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="adminModalTitle">إضافة مدير جديد</h3>
+      <button class="modal-close" onclick="Modal.close('adminModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="adminForm">
+      <input type="hidden" id="adminId">
+      <div class="modal-body">
+        <div class="fg">
+          <label class="fl">اسم المستخدم *</label>
+          <input type="text" class="fi" id="adminUsername" required placeholder="اسم المستخدم (لاتيني فقط)" dir="ltr">
+        </div>
+        <div class="fg">
+          <label class="fl">كلمة المرور <span id="adminPassNote" style="color:var(--text-m);font-weight:400;font-size:11px">(اتركها فارغة لعدم التغيير)</span></label>
+          <input type="password" class="fi" id="adminPassword" placeholder="كلمة مرور قوية" dir="ltr" autocomplete="new-password">
+        </div>
+        <div class="fg">
+          <label class="fl">الدور الوظيفي</label>
+          <select class="fi fsel" id="adminRole">
+            <option value="superadmin">مدير عام (superadmin)</option>
+            <option value="admin">مدير (admin)</option>
+            <option value="moderator">مشرف (moderator)</option>
+          </select>
+        </div>
+        <div class="info-box" id="adminRoleHint">
+          <i class="fa-solid fa-circle-info"></i>
+          <span id="adminRoleHintText">مدير عام: صلاحيات كاملة بما فيها إدارة المدراء الآخرين.</span>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('adminModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="adminSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Dept Info (College Details) Modal -->
+<div class="modal" id="deptInfoModal">
+  <div class="modal-box modal-lg">
+    <div class="modal-head">
+      <h3 id="deptInfoModalTitle">معلومات القبول والشروط</h3>
+      <button class="modal-close" onclick="Modal.close('deptInfoModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <div class="modal-body">
+      <input type="hidden" id="deptInfoId">
+
+      <div class="modal-section-label">بيانات القبول</div>
+      <div class="fg3">
+        <div class="fg"><label class="fl">الحد الأدنى للقبول (%)</label><input type="number" class="fi" id="diMinScore" min="0" max="100" placeholder="مثال: 80"></div>
+        <div class="fg"><label class="fl">المقاعد المتاحة / سنة</label><input type="number" class="fi" id="diSeats" min="0" placeholder="مثال: 80"></div>
+        <div class="fg"><label class="fl">الرسوم السنوية</label><input type="text" class="fi" id="diFee" placeholder="مثال: 1,500,000 د.ع"></div>
+      </div>
+
+      <div class="modal-section-label">شروط القبول</div>
+      <div class="req-list" id="diReqList"></div>
+      <div class="req-add-row">
+        <input type="text" class="fi" id="diNewReqAr" placeholder="الشرط بالعربية" style="flex:1.5">
+        <input type="text" class="fi" id="diNewReqEn" placeholder="Requirement in English" dir="ltr" style="flex:1.5">
+        <button type="button" class="btn btn-outline btn-sm" onclick="DeptInfo.addReq()"><i class="fa-solid fa-plus"></i></button>
+      </div>
+
+      <div class="modal-section-label">الوثائق المطلوبة</div>
+      <div class="req-list" id="diDocList"></div>
+      <div class="req-add-row">
+        <input type="text" class="fi" id="diNewDocAr" placeholder="الوثيقة بالعربية" style="flex:1.5">
+        <input type="text" class="fi" id="diNewDocEn" placeholder="Document in English" dir="ltr" style="flex:1.5">
+        <button type="button" class="btn btn-outline btn-sm" onclick="DeptInfo.addDoc()"><i class="fa-solid fa-plus"></i></button>
+      </div>
+
+      <div class="modal-section-label">ملاحظات عامة</div>
+      <div class="fg2">
+        <div class="fg"><label class="fl">ملاحظات بالعربية</label><textarea class="fi fta" id="diNotesAr" rows="2" placeholder="ملاحظات اختيارية..."></textarea></div>
+        <div class="fg"><label class="fl">Notes in English</label><textarea class="fi fta" id="diNotesEn" rows="2" dir="ltr"></textarea></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn btn-ghost" onclick="Modal.close('deptInfoModal')">إلغاء</button>
+      <button type="button" class="btn btn-primary" id="deptInfoSaveBtn" onclick="DeptInfo.save()"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admission Edit Modal -->
+<div class="modal" id="admissionEditModal">
+  <div class="modal-box modal-lg">
+    <div class="modal-head">
+      <h3>تعديل طلب القبول</h3>
+      <button class="modal-close" onclick="Modal.close('admissionEditModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="admissionEditForm">
+      <input type="hidden" id="admEditId">
+      <div class="modal-body">
+        <div class="fg2">
+          <div class="fg"><label class="fl">الاسم الكامل *</label><input type="text" class="fi" id="admEditName" required></div>
+          <div class="fg"><label class="fl">البريد الإلكتروني *</label><input type="email" class="fi" id="admEditEmail" dir="ltr" required></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">الهاتف</label><input type="text" class="fi" id="admEditPhone"></div>
+          <div class="fg">
+            <label class="fl">الجنس</label>
+            <select class="fi fsel" id="admEditGender">
+              <option value="male">ذكر</option>
+              <option value="female">أنثى</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">الكلية</label><input type="text" class="fi" id="admEditDept" placeholder="اسم الكلية"></div>
+          <div class="fg"><label class="fl">العام الدراسي</label><input type="text" class="fi" id="admEditYear" dir="ltr" placeholder="2026-2027"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg"><label class="fl">المدينة</label><input type="text" class="fi" id="admEditCity"></div>
+          <div class="fg"><label class="fl">معدل الثانوية (%)</label><input type="number" class="fi" id="admEditScore" min="0" max="100" step="0.01"></div>
+        </div>
+        <div class="fg2">
+          <div class="fg">
+            <label class="fl">الحالة</label>
+            <select class="fi fsel" id="admEditStatus">
+              <option value="pending">معلق</option>
+              <option value="reviewing">قيد المراجعة</option>
+              <option value="accepted">مقبول</option>
+              <option value="rejected">مرفوض</option>
+              <option value="waitlisted">قائمة انتظار</option>
+            </select>
+          </div>
+          <div class="fg"></div>
+        </div>
+        <div class="fg"><label class="fl">ملاحظات داخلية</label><textarea class="fi fta" id="admEditNotes" rows="3" placeholder="ملاحظات للإدارة فقط..."></textarea></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('admissionEditModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="admEditSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ التعديلات</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Students Content: Announcement Add/Edit Modal -->
+<div class="modal" id="announcementModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="annModalTitle">إضافة إعلان</h3>
+      <button class="modal-close" onclick="Modal.close('announcementModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="announcementForm">
+      <input type="hidden" id="annId">
+      <div class="modal-body">
+        <div class="fg"><label class="fl">عنوان الإعلان *</label><input type="text" class="fi" id="annTitleAr" required placeholder="نص الإعلان بالعربية"></div>
+        <div class="fg"><label class="fl">التاريخ</label><input type="date" class="fi" id="annDate" dir="ltr"></div>
+        <div class="fg fg-check">
+          <label class="fl">مستوى الأهمية</label>
+          <label class="toggle-label">
+            <input type="checkbox" id="annImportant">
+            <span class="toggle-track"></span>
+            <span class="toggle-txt">إعلان هام</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('announcementModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="annSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Students Content: Link Add/Edit Modal -->
+<div class="modal" id="linkModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="linkModalTitle">إضافة رابط</h3>
+      <button class="modal-close" onclick="Modal.close('linkModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-scroll-bar"></div>
+    <form id="linkForm">
+      <input type="hidden" id="linkId">
+      <div class="modal-body">
+        <div class="fg"><label class="fl">عنوان الرابط *</label><input type="text" class="fi" id="linkTitleAr" required placeholder="مثال: نظام التسجيل"></div>
+        <div class="fg"><label class="fl">الرابط (URL)</label><input type="url" class="fi" id="linkUrl" dir="ltr" placeholder="https://..."></div>
+        <div class="fg"><label class="fl">أيقونة Font Awesome</label><input type="text" class="fi" id="linkIcon" dir="ltr" placeholder="fa-graduation-cap"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" onclick="Modal.close('linkModal')">إلغاء</button>
+        <button type="submit" class="btn btn-primary" id="linkSaveBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الملف الأكاديمي — جامعة الكنوز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --navy:   #0c1b3e;
+  --teal:   #0e7c6b;
+  --gold:   #c9a84c;
+  --bg:     #f3f5fb;
+  --card:   #ffffff;
+  --border: #e4e8f2;
+  --text:   #111827;
+  --text-s: #4b5670;
+  --text-m: #7d8aa8;
+  --r:      12px;
+  --shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+img  { max-width: 100%; display: block; }
+
+/* ─── Header ─── */
+.site-header {
+  background: var(--navy);
+  background-image:
+    repeating-linear-gradient(-50deg, transparent, transparent 22px, rgba(255,255,255,.012) 22px, rgba(255,255,255,.012) 23px),
+    linear-gradient(135deg, #122450, var(--navy));
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.site-header-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-icon {
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  display: grid; place-items: center;
+  font-size: 18px; color: var(--gold);
+}
+.logo-text .name-ar { font-size: 16px; font-weight: 800; color: #fff; display: block; line-height: 1.2; }
+.logo-text .name-en { font-size: 11px; color: rgba(255,255,255,.45); font-family: 'Outfit', sans-serif; display: block; }
+.header-spacer { flex: 1; }
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px;
+  color: rgba(255,255,255,.8);
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+.back-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+/* ─── Hero ─── */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3565 60%, var(--teal) 100%);
+  padding: 48px 32px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(-50deg, transparent, transparent 22px, rgba(255,255,255,.012) 22px, rgba(255,255,255,.012) 23px);
+}
+.hero-photo {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,.3);
+  margin: 0 auto 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: rgba(255,255,255,.5);
+  position: relative; z-index: 1;
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-title-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 14px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.hero-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  position: relative; z-index: 1;
+}
+.hero-name-en {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,.6);
+  font-weight: 400;
+  margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+.hero-spec {
+  font-size: 14px;
+  color: rgba(255,255,255,.75);
+  position: relative; z-index: 1;
+}
+.hero-dept {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,.85);
+  position: relative; z-index: 1;
+}
+
+/* ─── Layout ─── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.profile-body {
+  margin-top: -40px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+}
+@media (max-width: 700px) { .profile-grid { grid-template-columns: 1fr; } }
+
+/* ─── Cards ─── */
+.pcard {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.pcard-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pcard-head i { color: var(--teal); font-size: 14px; }
+.pcard-body { padding: 18px 20px; }
+
+/* ─── Bio ─── */
+.bio-text { font-size: 14px; color: var(--text-s); line-height: 2; }
+
+/* ─── Qualifications ─── */
+.qualif-list { display: flex; flex-direction: column; gap: 12px; }
+.qualif-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.qualif-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.qualif-degree { font-size: 14px; font-weight: 700; color: var(--text); }
+.qualif-meta { font-size: 12.5px; color: var(--text-m); margin-top: 2px; }
+
+/* ─── Courses ─── */
+.courses-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.course-chip {
+  background: rgba(14,124,107,.07);
+  border: 1px solid rgba(14,124,107,.2);
+  color: var(--teal);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* ─── Contact info ─── */
+.contact-list { display: flex; flex-direction: column; gap: 12px; }
+.contact-item { display: flex; align-items: center; gap: 12px; }
+.contact-icon {
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: grid; place-items: center;
+  font-size: 13px;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.contact-label { font-size: 11px; color: var(--text-m); margin-bottom: 1px; }
+.contact-val { font-size: 13.5px; color: var(--text); font-family: 'Outfit', sans-serif; }
+.contact-val a { color: var(--teal); text-decoration: none; }
+
+/* ─── Admin link ─── */
+.admin-link-bar {
+  background: rgba(12,27,62,.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: var(--text-m);
+}
+.admin-link-bar a { color: var(--teal); font-weight: 600; text-decoration: none; }
+.admin-link-bar a:hover { text-decoration: underline; }
+
+/* ─── Loading ─── */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 16px;
+  color: var(--text-m);
+}
+.spin {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.not-found {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--text-m);
+}
+.not-found i { font-size: 48px; color: var(--border); margin-bottom: 16px; display: block; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-header-logo" href="../index.html">
+    <div class="logo-icon"><i class="fa-solid fa-landmark"></i></div>
+    <div class="logo-text">
+      <span class="name-ar">جامعة الكنوز</span>
+      <span class="name-en">Al-Kunooz University</span>
+    </div>
+  </a>
+  <div class="header-spacer"></div>
+  <a class="back-btn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> رجوع</a>
+</header>
+
+<div id="app">
+  <div class="loading-state">
+    <div class="spin"></div>
+    <p>جاري تحميل الملف الأكاديمي...</p>
+  </div>
+</div>
+
+<script>
+const MOCK_FACULTY = [
+  { _id:'f1', deptId:'d1', deptName:'كلية طب الأسنان', name:{ar:'أ.د. أحمد عبدالرحيم', en:'Prof. Ahmad Abdulraheem'}, title:'professor', specialization:{ar:'جراحة الفم والأسنان', en:'Oral & Maxillofacial Surgery'}, email:'a.abdulraheem@alkunooz.edu.iq', phone:'+964 770 001 0001', photo:null, bio:{ar:'أستاذ متميز في جراحة الفم والأسنان بخبرة تجاوزت 20 عاماً في التدريس والبحث العلمي، حاصل على جوائز أكاديمية متعددة.', en:'Distinguished professor with over 20 years in oral surgery teaching and research, recipient of multiple academic awards.'}, qualifications:[{degree:'دكتوراه في جراحة الفم',year:2002,university:'جامعة بغداد'},{degree:'ماجستير في طب الأسنان',year:1998,university:'جامعة البصرة'}], courses:['جراحة الفم','أمراض اللثة','التخدير الموضعي'] },
+  { _id:'f2', deptId:'d1', deptName:'كلية طب الأسنان', name:{ar:'أ.م.د. سارة الموسى', en:'Assoc. Prof. Sara Al-Mousa'}, title:'assoc_professor', specialization:{ar:'تقويم الأسنان', en:'Orthodontics'}, email:'s.almousa@alkunooz.edu.iq', phone:'+964 770 001 0002', photo:null, bio:{ar:'متخصصة في علم التقويم مع اهتمام بحثي في نمو الوجه والأسنان لدى الأطفال والمراهقين.', en:'Specialist in orthodontics with research interest in facial and dental growth in children and adolescents.'}, qualifications:[{degree:'دكتوراه في التقويم',year:2010,university:'جامعة الكوفة'}], courses:['التقويم الثابت','التقويم المتحرك'] },
+  { _id:'f3', deptId:'d2', deptName:'كلية الصيدلة', name:{ar:'أ.د. محمد الكريمي', en:'Prof. Mohammed Al-Karimi'}, title:'professor', specialization:{ar:'الكيمياء الصيدلانية', en:'Pharmaceutical Chemistry'}, email:'m.alkarimi@alkunooz.edu.iq', phone:'+964 770 001 0003', photo:null, bio:{ar:'رائد في أبحاث الكيمياء الصيدلانية وتطوير الأدوية، نشر أكثر من 60 بحثاً محكماً في مجلات دولية.', en:'Pioneer in pharmaceutical chemistry and drug development research, with over 60 peer-reviewed publications in international journals.'}, qualifications:[{degree:'دكتوراه في الكيمياء الصيدلانية',year:1999,university:'جامعة بغداد'},{degree:'بوست دكتوراه',year:2003,university:'جامعة لندن'}], courses:['الكيمياء الصيدلانية العضوية','تحليل الأدوية'] },
+  { _id:'f4', deptId:'d3', deptName:'كلية الهندسة والتقنية', name:{ar:'أ.م.د. يوسف الجعفري', en:'Assoc. Prof. Yousif Al-Jaafari'}, title:'assoc_professor', specialization:{ar:'هندسة البرمجيات', en:'Software Engineering'}, email:'y.aljaafari@alkunooz.edu.iq', phone:'+964 770 001 0004', photo:null, bio:{ar:'خبير في هندسة البرمجيات وأنظمة الذكاء الاصطناعي، حاصل على براءة اختراع في مجال التعلم الآلي.', en:'Expert in software engineering and AI systems, holds a patent in machine learning.'}, qualifications:[{degree:'دكتوراه في علم الحاسوب',year:2008,university:'جامعة تكنولوجيا المعلومات والاتصالات'}], courses:['هندسة البرمجيات','الذكاء الاصطناعي','قواعد البيانات'] },
+  { _id:'f5', deptId:'d4', deptName:'كلية القانون', name:{ar:'أ.م.د. زينب الصافي', en:'Assoc. Prof. Zainab Al-Safi'}, title:'assoc_professor', specialization:{ar:'القانون المدني', en:'Civil Law'}, email:'z.alsafi@alkunooz.edu.iq', phone:'+964 770 001 0005', photo:null, bio:{ar:'متخصصة في القانون المدني والعقود مع خبرة واسعة في التحكيم التجاري الدولي.', en:'Specialist in civil law and contracts with extensive experience in international commercial arbitration.'}, qualifications:[{degree:'دكتوراه في القانون المدني',year:2006,university:'جامعة بغداد'}], courses:['القانون المدني','عقود البيع والإيجار','التحكيم التجاري'] },
+];
+
+const FAC_TITLES = {
+  professor:'أستاذ', assoc_professor:'أستاذ مشارك',
+  asst_professor:'أستاذ مساعد', lecturer:'مدرّس', instructor:'مدرّس مساعد',
+};
+
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+function render(f) {
+  const titleLabel = FAC_TITLES[f.title] || f.title;
+  document.title = `${f.name.ar} — جامعة الكنوز`;
+  document.getElementById('app').innerHTML = `
+    <div class="hero">
+      <div class="hero-photo">
+        ${f.photo ? `<img src="${f.photo}" alt="${f.name.ar}">` : `<i class="fa-solid fa-user"></i>`}
+      </div>
+      <div class="hero-title-badge">${titleLabel}</div>
+      <div class="hero-name">${f.name.ar}</div>
+      ${f.name.en ? `<div class="hero-name-en">${f.name.en}</div>` : ''}
+      <div class="hero-spec">${f.specialization?.ar || ''}</div>
+      ${f.deptName ? `<div class="hero-dept"><i class="fa-solid fa-building-columns"></i>${f.deptName}</div>` : ''}
+    </div>
+
+    <div class="container">
+      <div class="profile-body">
+        <div class="admin-link-bar">
+          <i class="fa-solid fa-circle-info"></i>
+          هذه الصفحة للعرض العام —
+          <a href="index.html?section=faculty">العودة إلى لوحة الإدارة</a>
+        </div>
+        <div class="profile-grid">
+          <div style="display:flex;flex-direction:column;gap:16px">
+
+            ${(f.bio?.ar || f.bio?.en) ? `
+            <div class="pcard">
+              <div class="pcard-head"><i class="fa-solid fa-id-card"></i> نبذة تعريفية</div>
+              <div class="pcard-body">
+                ${f.bio?.ar ? `<p class="bio-text">${f.bio.ar}</p>` : ''}
+                ${f.bio?.en ? `<p class="bio-text" style="margin-top:12px;font-family:'Outfit',sans-serif;color:#6b7280;direction:ltr;text-align:left">${f.bio.en}</p>` : ''}
+              </div>
+            </div>` : ''}
+
+            ${f.qualifications?.length ? `
+            <div class="pcard">
+              <div class="pcard-head"><i class="fa-solid fa-graduation-cap"></i> المؤهلات العلمية</div>
+              <div class="pcard-body">
+                <div class="qualif-list">
+                  ${f.qualifications.map(q => `
+                    <div class="qualif-item">
+                      <div class="qualif-dot"></div>
+                      <div>
+                        <div class="qualif-degree">${q.degree}</div>
+                        <div class="qualif-meta">${q.university || ''}${q.year ? ` · ${q.year}` : ''}</div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>` : ''}
+
+            ${f.courses?.length ? `
+            <div class="pcard">
+              <div class="pcard-head"><i class="fa-solid fa-book-open"></i> المقررات الدراسية</div>
+              <div class="pcard-body">
+                <div class="courses-list">
+                  ${f.courses.map(c => `<span class="course-chip">${c}</span>`).join('')}
+                </div>
+              </div>
+            </div>` : ''}
+
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+
+            <div class="pcard">
+              <div class="pcard-head"><i class="fa-solid fa-address-book"></i> بيانات التواصل</div>
+              <div class="pcard-body">
+                <div class="contact-list">
+                  ${f.email ? `
+                  <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div>
+                      <div class="contact-label">البريد الإلكتروني</div>
+                      <div class="contact-val"><a href="mailto:${f.email}">${f.email}</a></div>
+                    </div>
+                  </div>` : ''}
+                  ${f.phone ? `
+                  <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                      <div class="contact-label">الهاتف</div>
+                      <div class="contact-val"><a href="tel:${f.phone}">${f.phone}</a></div>
+                    </div>
+                  </div>` : ''}
+                  ${f.deptName ? `
+                  <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div>
+                      <div class="contact-label">الكلية</div>
+                      <div class="contact-val" style="font-family:'Cairo',sans-serif">${f.deptName}</div>
+                    </div>
+                  </div>` : ''}
+                </div>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pcard-head"><i class="fa-solid fa-user-tie"></i> المسمى الوظيفي</div>
+              <div class="pcard-body" style="text-align:center;padding:22px">
+                <div style="font-size:36px;color:var(--gold);margin-bottom:10px"><i class="fa-solid fa-star"></i></div>
+                <div style="font-size:17px;font-weight:800;color:var(--navy)">${titleLabel}</div>
+                ${f.specialization?.en ? `<div style="font-size:13px;color:var(--text-m);font-family:'Outfit',sans-serif;margin-top:4px">${f.specialization.en}</div>` : ''}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderNotFound() {
+  document.getElementById('app').innerHTML = `
+    <div class="container">
+      <div class="not-found">
+        <i class="fa-solid fa-user-slash"></i>
+        <h2 style="font-size:22px;color:#374151;margin-bottom:8px">الملف غير موجود</h2>
+        <p>لم يتم العثور على التدريسي المطلوب.</p>
+        <a href="index.html" style="display:inline-block;margin-top:20px;color:var(--teal);font-weight:600">← العودة للوحة الإدارة</a>
+      </div>
+    </div>
+  `;
+}
+
+/* ─── Load ─── */
+const id = getParam('id');
+if (!id) {
+  renderNotFound();
+} else {
+  // Try backend first, fall back to MOCK
+  const API = 'http://localhost:5000/api';
+  fetch(`${API}/faculty/${id}`)
+    .then(r => r.ok ? r.json() : null)
+    .then(res => {
+      if (res?.success && res.data) {
+        render(res.data);
+      } else {
+        const f = MOCK_FACULTY.find(x => x._id === id);
+        f ? render(f) : renderNotFound();
+      }
+    })
+    .catch(() => {
+      const f = MOCK_FACULTY.find(x => x._id === id);
+      f ? render(f) : renderNotFound();
+    });
+}
+</script>
+</body>
+</html>
